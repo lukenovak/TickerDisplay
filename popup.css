@@ -1,0 +1,23 @@
+/* main class for the popup */
+.main {
+  background-color: #C8E6C9;
+  width: 150px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* class for the header */
+h2 {
+  text-align: center;
+  font-weight: bolder;
+}
+
+/* class for generic paragraph blocks */
+p {
+  text-align: center;
+}
+
+/* class for the small text with version */
+.small {
+  font-size: 8;
+  text-align: center;
+}

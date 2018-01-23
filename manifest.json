@@ -1,0 +1,34 @@
+{
+  "manifest_version": 2,
+  "name": "PostTracker",
+  "version": "0.0.2",
+  "author": "Luke Novak",
+  "description": "Tracking just how stupid /r/wallstreetbets can be",
+
+
+  "browser_action": {
+    "default_title": "PostTracker",
+    "default_popup": "popup.html"
+  },
+
+  "permissions": [
+    "https://www.reddit.com/r/wallstreetbets/*",
+    "https://www.reddit.com/r/stocks/*",
+    "https://www.reddit.com/r/options/*",
+    "https://www.reddit.com/r/robinhood/*",
+    "https://www.reddit.com/r/investing/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.reddit.com/r/wallstreetbets/*",
+        "https://www.reddit.com/r/stocks/*",
+        "https://www.reddit.com/r/options/*",
+        "https://www.reddit.com/r/robinhood/*",
+        "https://www.reddit.com/r/investing/*"
+      ],
+      "js": [ "jquery-3.2.1.min.js", "display.js", "getPrices.js"]
+    }
+  ]
+}
