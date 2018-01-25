@@ -3,7 +3,7 @@
   "name": "PostTracker",
   "version": "0.0.2",
   "author": "Luke Novak",
-  "description": "Tracking just how stupid /r/wallstreetbets can be",
+  "description": "Saving you from changing the tab to check a stock price",
 
 
   "browser_action": {
