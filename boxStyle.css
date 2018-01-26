@@ -1,0 +1,19 @@
+.box-stock-up {
+  width: 100px;
+  height: 60px;
+  background-color: #C8E6C9;
+  border-radius: 5px;
+  border-color: #013220;
+  color: #013220;
+  text-align:center;
+}
+
+.box-stock-down {
+  width: 100px;
+  height: 60px;
+  background-color: #FF8C7F;
+  border-radius: 5px;
+  border-color: #910E00;
+  color: #910E00;
+  text-align:center;
+}

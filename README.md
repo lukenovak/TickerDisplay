@@ -2,6 +2,7 @@
 A chrome extension that displays daily change in price for stocks in post
 
 Currently Under Development
+- Uses the IEX API, more info can be found at https://iextrading.com/developer/
 
 For now, the extension only recognizes symbols after a dollar sign
 

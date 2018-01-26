@@ -122,14 +122,34 @@ function getPriceIfPresent(title) {
 function displayPrice(data) {
   var price = data.latestPrice;
   var ticker = data.symbol;
-  var change = percentChangeString(data.changePercent);
+  var change = data.changePercent;
+  var htmlInsert = buildTickerBox(price, ticker, change);
   //jQuery gets the tile area and puts the price there
-  $(".top-matter").after("<p>" + ticker + " $" + price + " " + change + "</p>")
+  $(".top-matter").after(htmlInsert);
+}
+
+// Builds a string that contains the html to be inserted into the pageX
+function buildTickerBox(price, ticker, change) {
+  var htmlString = "";
+  var changeString = percentChangeString(change);
+  // if statement (box and text should be green if stock is up, red if down)
+  if (change > 0) {
+    //adds the div wrapper
+    htmlString = htmlString + "<div class=box-stock-up>";
+  }
+  if (change <= 0) {
+    htmlString = htmlString + "div class=box-stock-down>";
+  }
+  // adds the text inside the divider
+  htmlString = htmlString + "<p>" + ticker + " $" + price + " " + changeString + "</p>";
+  // ends the divider
+  htmlString = htmlString + "</div>";
+  return htmlString;
 }
 
 // creates a percent change string from the percent change dataType
 function percentChangeString(percentChange) {
-  percentChange = Number((percentChange).toFixed(3)); // rounds to 3 decmial pts
+  percentChange = Number((percentChange * 100).toFixed(3)); // rounds to 3 decmial pts
   var percentString = "";
   if (percentChange > 0) {
     percentString = "+" + percentChange + "%";
@@ -139,6 +159,19 @@ function percentChangeString(percentChange) {
   }
   return percentString;
 }
+
+// function that inserts the stylesheet into the page
+function insertStylesheet() {
+  var link = $("<link />",{
+    rel: "stylesheet",
+    type: "text/css",
+    href: "//boxStyle.css"
+  })
+  $('head').append(link);
+}
+
+// function call to insert the stylesheet
+insertStylesheet();
 
 // function call that calls the function to display the price
 getPriceIfPresent($("p.title:first a[data-event-action = title]").text())
