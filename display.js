@@ -20,9 +20,7 @@ function containsStock(title) {
   title += "";
   // has a stock been found?
   var stockFound = false;
-  for (var i = 0;
-      i < title.length;
-      i= i + 1) {
+  for (var i = 0; i < title.length; i= i + 1) {
     if (title.charAt(i) == "$") {
       if (isLatinLetter(title.charAt(i + 1))) {
         stockFound = true;
@@ -39,14 +37,10 @@ function stockNameInPost(title) {
   var ticker = "";
   title += "";
   // gets the stock (finds the dollar sign and records letters after)
-  for (var i = 0;
-  i < title.length;
-  i = i + 1) {
+  for (var i = 0; i < title.length; i = i + 1) {
     if (title.charAt(i) == "$") {
       // records the ticker, goes until it finds a non-letter
-      for (var j = i + 1;
-      j <= i + 4;
-      j = j + 1) {
+      for (var j = i + 1; j <= i + 4; j = j + 1) {
         if (isLatinLetter(title.charAt(j))) {
           ticker = ticker + title.charAt(j);
         }
@@ -97,20 +91,16 @@ function formattedDate() {
 // gets the current price of a given stock
 // the input ticker must be a string
 function getPrice(ticker) {
-  // TODO: Find another way to remove the api key here
-  var url = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY' +
-            '&symbol=' + ticker + '&apikey=IPXXZJEA5YWKM5CP';
+
+  var url = 'https://api.iextrading.com/1.0/stock/' +
+            ticker + '/quote';
   console.log(url);
   // gets the JSON
   var priceJSON = $.getJSON(url, function(data) {
     console.log("running function")
-    // navigating the JSON to get the price
-    var priceData = data["Time Series (Daily)"];
-    var priceString = priceData[formattedDate()]["4. close"];
-    return priceString;
-    console.log(priceString);
   });
-  return priceJSON;
+  JSON.parse(priceJSON)
+  return latestPrice;
 }
 
 console.log(getPrice("MU"))
