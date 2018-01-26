@@ -98,7 +98,6 @@ function getPrice(ticker) {
   var defaultPrice = 1;
   var url = 'https://api.iextrading.com/1.0/stock/' +
             ticker + '/quote';
-  console.log(url);
   // gets the JSON
   var priceJSON = $.getJSON(url, function(data) {
     var price = data.latestPrice;
@@ -107,18 +106,14 @@ function getPrice(ticker) {
     });
 }
 
-console.log(getPrice("MU"))
 // gets the current price of a ticker if there is one
 function getPriceIfPresent(title) {
   var ticker = getTickersIfPresent(title);
   if (ticker !== "No stocks in this post") {
-    console.log(true);
-    console.log(ticker);
     var price = getPrice(ticker);
     return price;
   }
   else {
-    console.log(false);
     return "No stocks in this post";
   }
 }
