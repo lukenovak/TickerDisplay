@@ -48,6 +48,9 @@ function stockNameInPost(title) {
           break;
         }
       }
+      if (ticker.length > 1) {
+        break;
+      }
     }
   }
     return ticker;
@@ -92,15 +95,16 @@ function formattedDate() {
 // the input ticker must be a string
 function getPrice(ticker) {
 
+  var defaultPrice = 1;
   var url = 'https://api.iextrading.com/1.0/stock/' +
             ticker + '/quote';
   console.log(url);
   // gets the JSON
   var priceJSON = $.getJSON(url, function(data) {
-    console.log("running function")
-  });
-  JSON.parse(priceJSON)
-  return latestPrice;
+    var price = data.latestPrice;
+    // calls the function that displays the price
+    displayPrice(price);
+    });
 }
 
 console.log(getPrice("MU"))
@@ -117,6 +121,12 @@ function getPriceIfPresent(title) {
     console.log(false);
     return "No stocks in this post";
   }
+}
+
+// displays the price on the page
+function displayPrice(price) {
+  var priceString = "" + price;
+  console.log(priceString);
 }
 
 console.log(
