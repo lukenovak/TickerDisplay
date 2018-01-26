@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "PostTracker",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Luke Novak",
   "description": "Saving you from changing the tab to check a stock price",
 
