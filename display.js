@@ -102,7 +102,7 @@ function getPrice(ticker) {
   var priceJSON = $.getJSON(url, function(data) {
     var price = data.latestPrice;
     // calls the function that displays the price
-    displayPrice(price);
+    displayPrice(price, ticker);
     });
 }
 
@@ -118,11 +118,11 @@ function getPriceIfPresent(title) {
   }
 }
 
-// displays the price on the page
-function displayPrice(price) {
-  var priceString = "" + price;
-  console.log(priceString);
+// displays the price on the page by inserting it next to the title
+function displayPrice(price, ticker) {
+  //jQuery gets the tile area and puts the price there
+  $(".top-matter").after("<p>" + ticker + " $" + price + "</p>")
 }
 
-console.log(
-  getPriceIfPresent($("p.title:first a[data-event-action = title]").text()));
+// function call that calls the function to display the price
+getPriceIfPresent($("p.title:first a[data-event-action = title]").text())
