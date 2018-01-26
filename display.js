@@ -160,18 +160,5 @@ function percentChangeString(percentChange) {
   return percentString;
 }
 
-// function that inserts the stylesheet into the page
-function insertStylesheet() {
-  var link = $("<link />",{
-    rel: "stylesheet",
-    type: "text/css",
-    href: "//boxStyle.css"
-  })
-  $('head').append(link);
-}
-
-// function call to insert the stylesheet
-insertStylesheet();
-
 // function call that calls the function to display the price
 getPriceIfPresent($("p.title:first a[data-event-action = title]").text())
