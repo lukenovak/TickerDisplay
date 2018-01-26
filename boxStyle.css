@@ -5,16 +5,19 @@
   border-radius: 5px;
   border-style: solid;
   border-color: #013220;
+  border-width: thin;
   color: #013220;
   text-align:center;
   font-weight: bold;
 }
 
 .box-stock-down {
-  width: 100px;
-  height: 60px;
+  width: 90px;
+  height: 30px;
   background-color: #FF8C7F;
   border-radius: 5px;
+  border-style: solid;
+  border-width: thin;
   border-color: #910E00;
   color: #910E00;
   text-align:center;

@@ -138,7 +138,7 @@ function buildTickerBox(price, ticker, change) {
     htmlString = htmlString + "<div class=box-stock-up>";
   }
   if (change <= 0) {
-    htmlString = htmlString + "div class=box-stock-down>";
+    htmlString = htmlString + "<div class=box-stock-down>";
   }
   // adds the text inside the divider
   htmlString = htmlString + "<p>" + ticker + " $" + price + " " + changeString + "</p>";
