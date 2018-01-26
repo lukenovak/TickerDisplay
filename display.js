@@ -125,7 +125,7 @@ function displayPrice(data) {
   var change = data.changePercent;
   var htmlInsert = buildTickerBox(price, ticker, change);
   //jQuery gets the tile area and puts the price there
-  $(".top-matter").after(htmlInsert);
+  $(".top-matter").prepend(htmlInsert);
 }
 
 // Builds a string that contains the html to be inserted into the pageX
