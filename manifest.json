@@ -28,7 +28,8 @@
         "https://www.reddit.com/r/robinhood/*",
         "https://www.reddit.com/r/investing/*"
       ],
-      "js": [ "jquery-3.2.1.min.js", "display.js"]
+      "js": [ "jquery-3.2.1.min.js", "display.js"],
+      "css": ["boxStyle.css"]
     }
   ]
 }
