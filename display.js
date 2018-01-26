@@ -100,9 +100,9 @@ function getPrice(ticker) {
             ticker + '/quote';
   // gets the JSON
   var priceJSON = $.getJSON(url, function(data) {
-    var price = data.latestPrice;
+    // this code only runs on success
     // calls the function that displays the price
-    displayPrice(price, ticker);
+    displayPrice(data);
     });
 }
 
@@ -119,9 +119,25 @@ function getPriceIfPresent(title) {
 }
 
 // displays the price on the page by inserting it next to the title
-function displayPrice(price, ticker) {
+function displayPrice(data) {
+  var price = data.latestPrice;
+  var ticker = data.symbol;
+  var change = percentChangeString(data.changePercent);
   //jQuery gets the tile area and puts the price there
-  $(".top-matter").after("<p>" + ticker + " $" + price + "</p>")
+  $(".top-matter").after("<p>" + ticker + " $" + price + " " + change + "</p>")
+}
+
+// creates a percent change string from the percent change dataType
+function percentChangeString(percentChange) {
+  percentChange = Number((percentChange).toFixed(3)); // rounds to 3 decmial pts
+  var percentString = "";
+  if (percentChange > 0) {
+    percentString = "+" + percentChange + "%";
+  }
+  else {
+    percentString = percentChange + "%";
+  }
+  return percentString;
 }
 
 // function call that calls the function to display the price
