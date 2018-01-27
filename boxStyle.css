@@ -1,4 +1,5 @@
 .box-stock-up {
+  margin-top: 13px;
   width: 90px;
   height: 30px;
   background-color: #C8E6C9;
@@ -13,6 +14,7 @@
 }
 
 .box-stock-down {
+  margin-top: 13px;
   width: 90px;
   height: 30px;
   background-color: #FF8C7F;
