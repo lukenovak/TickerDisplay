@@ -1,9 +1,3 @@
-//testing that this file was run
-console.log("display.js triggered");
-
-// test of getting the text
-console.log($("p.title:first a[data-event-action = title]").text());
-
 // String of length = 1 -> Boolean
 // is this character a letter in the latin alphabet?
 function isLatinLetter(letter) {
