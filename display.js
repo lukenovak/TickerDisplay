@@ -155,6 +155,4 @@ function percentChangeString(percentChange) {
 }
 
 // function call that calls the function to display the price
-$("p.title a[data-event-action = title]").each(function() {
-  getPriceIfPresent($(this).text())
-});
+getPriceIfPresent($("p.title a[data-event-action = title]").text());
