@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "TickerDisplay",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "author": "Luke Novak",
   "description": "Saving you from changing the tab to check a stock price",
 

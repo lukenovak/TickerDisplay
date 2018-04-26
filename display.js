@@ -1,3 +1,4 @@
+// Represents a Post, currently not used
 function Post(title) {
   var title = title;
 }
@@ -91,8 +92,8 @@ function formattedDate() {
 
 // gets the current price of a given stock
 // the input ticker must be a string
-function getPrice(ticker) {
-
+function getPrice(ticker, post) {
+  var html = "no price present"
   var defaultPrice = 1;
   var url = 'https://api.iextrading.com/1.0/stock/' +
             ticker + '/quote';
@@ -100,15 +101,16 @@ function getPrice(ticker) {
   var priceJSON = $.getJSON(url, function(data) {
     // this code only runs on success
     // calls the function that displays the price
-    displayPrice(data);
+    post.prepend(displayPrice(data));
     });
+  return priceJSON;
 }
 
 // gets the current price of a ticker if there is one
-function getPriceIfPresent(title) {
+function getPriceIfPresent(title, post) {
   var ticker = getTickersIfPresent(title);
   if (ticker !== "No stocks in this post") {
-    var price = getPrice(ticker);
+    var price = getPrice(ticker, post);
     return price;
   }
   else {
@@ -116,14 +118,14 @@ function getPriceIfPresent(title) {
   }
 }
 
-// displays the price on the page by inserting it next to the title
+// returns the box that should be displayed for the
 function displayPrice(data) {
   var price = data.latestPrice;
   var ticker = data.symbol;
   var change = data.changePercent;
   var htmlInsert = buildTickerBox(price, ticker, change);
-  //jQuery gets the tile area and puts the price there
-  $(".top-matter").prepend(htmlInsert);
+  // Returns the valid html to be inserted into the page
+  return htmlInsert;
 }
 
 // Builds a string that contains the html to be inserted into the pageX
@@ -160,6 +162,7 @@ function percentChangeString(percentChange) {
 
 
 // function call that calls the function to display the price
-$("p.title a[data-event-action = title]").each(function() {
-  getPriceIfPresent($(this).text());
+$(".top-matter").each(function(index, value) {
+  var title = $(this).find($("p.title a[data-event-action = title]")).text()
+  var toBeInserted = getPriceIfPresent(title, $(this));
 });
