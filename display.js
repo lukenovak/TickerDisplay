@@ -1,3 +1,7 @@
+function Post(title) {
+  var title = title;
+}
+
 // String of length = 1 -> Boolean
 // is this character a letter in the latin alphabet?
 function isLatinLetter(letter) {
@@ -154,5 +158,8 @@ function percentChangeString(percentChange) {
   return percentString;
 }
 
+
 // function call that calls the function to display the price
-getPriceIfPresent($("p.title a[data-event-action = title]").text());
+$("p.title a[data-event-action = title]").each(function() {
+  getPriceIfPresent($(this).text());
+});

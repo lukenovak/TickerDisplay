@@ -1,13 +1,13 @@
 {
   "manifest_version": 2,
-  "name": "PostTracker",
-  "version": "0.0.3",
+  "name": "TickerDisplay",
+  "version": "0.0.4",
   "author": "Luke Novak",
   "description": "Saving you from changing the tab to check a stock price",
 
 
   "browser_action": {
-    "default_title": "PostTracker",
+    "default_title": "TickerDisplay",
     "default_popup": "popup.html"
   },
 
