@@ -4,9 +4,10 @@
   "version": "0.1.0",
   "author": "Luke Novak",
   "description": "Saving you from changing the tab to check a stock price",
+  "options_page": "popup.html",
 
 
-  "browser_action": {
+  "page_action": {
     "default_title": "TickerDisplay",
     "default_popup": "popup.html"
   },
@@ -19,8 +20,7 @@
     "https://www.reddit.com/r/investing/*"
   ],
 
-  "content_scripts": [
-    {
+  "content_scripts": [{
       "matches": [
         "https://www.reddit.com/r/wallstreetbets/*",
         "https://www.reddit.com/r/stocks/*",
@@ -30,6 +30,5 @@
       ],
       "js": [ "jquery-3.2.1.min.js", "display.js"],
       "css": ["boxStyle.css"]
-    }
-  ]
+    }]
 }
