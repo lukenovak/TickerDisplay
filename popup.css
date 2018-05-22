@@ -17,6 +17,21 @@ p {
 
 /* class for the small text with version */
 .small {
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
   font-size: 8;
   text-align: center;
+}
+
+/* class for the radio button */
+.radio {
+  text-align: center;
+}
+
+/* class for the submit button */
+.submitButton {
+  text-align: center;
+  margin: 2px;
+  display: block;
 }
