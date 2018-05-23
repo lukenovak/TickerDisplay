@@ -37,6 +37,7 @@ p {
 
 /* class for the radio button */
 .radio {
+  margin-top: 6px;
   text-align: center;
   display: block;
 }

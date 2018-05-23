@@ -1,18 +1,26 @@
 
-// gets the option on whether to have percent or dollars
-function getPercentOption() {
+// gets user options
+function getUserOptions() {
   var options = document.getElementsByName("percent?");
+  var options2 = document.getElementById("ticker?");
   var percent;
+  var ticker;
   // since we only have two options for now we can iterate
   if (options[0].checked) {
     percent = true;
   }
-  else {
+  if (options[1].checked) {
     percent = false;
   }
-  console.log(percent + "");
+  if (options2.checked) {
+    ticker = true;
+  }
+  if (!options2.checked) {
+    ticker = false;
+  }
   chrome.storage.sync.set({
-    isPercent: percent
+    isPercent: percent,
+    isTicker: ticker
   }, function() {
     var statusUpdate = "Settings saved";
     document.getElementById("submit-button").append(statusUpdate);
@@ -24,7 +32,7 @@ function setListeners() {
   var button = document.getElementById("submitButton");
   button.addEventListener("click",
     function(event){
-      getPercentOption();
+      getUserOptions();
     });
 }
 
@@ -39,13 +47,20 @@ function resetUserOptions() {
   var isPercent =
   chrome.storage.sync.get({
     // uses true as a default value
-    isPercent: true
+    isPercent: true,
+    isTicker: true
   }, function(items) {
     if (items.isPercent) {
       document.getElementById("percentOrDollars1").checked = true;
     }
     if (!items.isPercent) {
       document.getElementById("percentOrDollars2").checked = true;
+    }
+    if (items.isTicker) {
+      document.getElementById("ticker?").checked = true;
+    }
+    if (!items.isTicker) {
+      document.getElementById("ticker?").checked = false;
     }
   });
 }
