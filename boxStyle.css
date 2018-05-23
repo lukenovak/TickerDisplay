@@ -1,28 +1,24 @@
-.box-stock-up {
+.box-stock {
   margin-top: 13px;
   width: 90px;
   height: 30px;
-  background-color: #C8E6C9;
   border-radius: 5px;
   border-style: solid;
-  border-color: #013220;
   border-width: thin;
-  color: #013220;
-  text-align:center;
+  text-align: center;
   font-weight: bold;
   float:right;
 }
 
-.box-stock-down {
-  margin-top: 13px;
-  width: 90px;
-  height: 30px;
+.up {
+
+  background-color: #C8E6C9;
+  border-color: #013220;
+  color: #013220;
+}
+
+.down {
   background-color: #FF8C7F;
-  border-radius: 5px;
-  border-style: solid;
-  border-width: thin;
   border-color: #910E00;
   color: #910E00;
-  text-align:center;
-  float:right;
 }

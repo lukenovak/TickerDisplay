@@ -132,13 +132,14 @@ function displayPrice(data) {
 function buildTickerBox(price, ticker, change) {
   var htmlString = "";
   var changeString = percentChangeString(change);
+  htmlString = "<div class=\"box-stock "
   // if statement (box and text should be green if stock is up, red if down)
   if (change > 0) {
     //adds the div wrapper
-    htmlString = htmlString + "<div class=box-stock-up>";
+    htmlString = htmlString + "up\">";
   }
   if (change <= 0) {
-    htmlString = htmlString + "<div class=box-stock-down>";
+    htmlString = htmlString + "down\">";
   }
   // adds the text inside the divider
   htmlString = htmlString + "<p>" + ticker + " $" + price + " " + changeString + "</p>";
