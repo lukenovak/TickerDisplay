@@ -13,6 +13,7 @@
   },
 
   "permissions": [
+    "storage",
     "https://www.reddit.com/r/wallstreetbets/*",
     "https://www.reddit.com/r/stocks/*",
     "https://www.reddit.com/r/options/*",

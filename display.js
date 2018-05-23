@@ -101,7 +101,7 @@ function getPrice(ticker, post) {
   var priceJSON = $.getJSON(url, function(data) {
     // this code only runs on success
     // calls the function that displays the price
-    post.prepend(displayPrice(data));
+    displayPrice(data, post);
     });
   return priceJSON;
 }
@@ -119,19 +119,38 @@ function getPriceIfPresent(title, post) {
 }
 
 // returns the box that should be displayed for the
-function displayPrice(data) {
+function displayPrice(data, post) {
+  if (post == null) {
+    return;
+  }
   var price = data.latestPrice;
   var ticker = data.symbol;
-  var change = data.changePercent;
-  var htmlInsert = buildTickerBox(price, ticker, change);
-  // Returns the valid html to be inserted into the page
-  return htmlInsert;
+  // are we representing our data as percents or dollars
+  var percent = true;
+  chrome.storage.sync.get(["isPercent"], function(item) {
+    console.log(item.isPercent);
+    percent = item.isPercent;
+    if (percent) {
+      var change = data.changePercent;
+    }
+    else {
+      var change = data.change;
+    }
+    var htmlInsert = buildTickerBox(price, ticker, change, percent);
+    post.prepend(htmlInsert);
+  })
 }
 
 // Builds a string that contains the html to be inserted into the pageX
-function buildTickerBox(price, ticker, change) {
+function buildTickerBox(price, ticker, change, isPercent) {
   var htmlString = "";
-  var changeString = percentChangeString(change);
+  var changeString = "";
+  if (isPercent) {
+    changeString = percentChangeString(change);
+  }
+  else {
+    changeString = dollarChangeString(change);
+  }
   htmlString = "<div class=\"box-stock "
   // if statement (box and text should be green if stock is up, red if down)
   if (change > 0) {
@@ -142,7 +161,8 @@ function buildTickerBox(price, ticker, change) {
     htmlString = htmlString + "stock-down\">";
   }
   // adds the text inside the divider
-  htmlString = htmlString + "<p>" + ticker + " $" + price + " " + changeString + "</p>";
+  htmlString = htmlString + "<p>" + ticker + " $" + price
+                          + "<br>" + changeString + "</p>";
   // ends the divider
   htmlString = htmlString + "</div>";
   return htmlString;
@@ -159,6 +179,20 @@ function percentChangeString(percentChange) {
     percentString = percentChange + "%";
   }
   return percentString;
+}
+
+// creates a dollar change string from dollar change data
+function dollarChangeString(dollarChange) {
+  dollarChange = Number(dollarChange.toFixed(2)); //rounds to the cent
+  var dollarString = "$";
+  if (dollarChange > 0) {
+    dollarString = "+ " + dollarString + dollarChange;
+  }
+  else {
+    dollarChange = dollarChange * -1;
+    dollarString = "- " + dollarString + dollarChange;
+  }
+  return dollarString;
 }
 
 
