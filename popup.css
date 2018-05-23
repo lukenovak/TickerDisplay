@@ -4,13 +4,24 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-/* class for the header */
+/* default text classes */
+h1 {
+  text-align: center;
+  margin: 10px;
+  font-weight: bolder;
+}
+
 h2 {
+  margin: 4px;
   text-align: center;
   font-weight: bold;
 }
 
-/* class for generic paragraph blocks */
+h3 {
+  font-weight: bold;
+  margin: 0px
+}
+
 p {
   text-align: center;
 }
@@ -27,11 +38,31 @@ p {
 /* class for the radio button */
 .radio {
   text-align: center;
+  display: block;
 }
 
 /* class for the submit button */
 .submitButton {
   text-align: center;
-  margin: 2px;
+  margin-top: 10px;
+  margin-bottom: 2px;
   display: block;
+}
+
+.popup {
+  position:relative;
+  top:0px;
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+.body-container {
+  background: white;
+  box-shadow: 0 2px 4px 0 grey;
+  width: 40%;
+  margin: 10px;
+  margin-left:30%;
+  margin-right:30%;
+  padding-bottom: 4px;
+  padding-top: 2px;
 }

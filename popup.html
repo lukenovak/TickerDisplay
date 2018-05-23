@@ -10,24 +10,37 @@
 </head>
 
 <body class="main">
-  <h2> TickerDisplay for Reddit </h2>
-  <p> by Luke Novak </p>
-
-  <div class="radio" id="radioButtonDiv">
-    <p> Display mode </p>
-    <input type="radio" id="percentOrDollars1"
-    name="percent?" value="percent">
-    <label for="percentOrDollars1">Percent</label>
-
-    <input type="radio" id="percentOrDollars2"
-    name="percent?" value="dollar">
-    <label for="percentOrDollars2">Dollars</label>
+  <div class= "popup body-container">
+    <h2> TickerDisplay for Reddit </h2>
+    <p> by Luke Novak </p>
   </div>
 
-  <div id="submit-button" class="submitButton">
-    <button id="submitButton">Submit Changes</button>
+  <div class="body-container">
+    <h1>Watchlist</h1>
+    <!-- TODO: input that syncs to chrome storage !-->
+    <p>Feature under construction</p>
+
   </div>
-  </input>
+
+  <div class="body-container">
+    <div class="radio" id="radioButtonDiv">
+      <h1>Settings</h1>
+      <h3>How do you want change represented?</h3>
+      <input type="radio" id="percentOrDollars1"
+      name="percent?" value="percent">
+      <label for="percentOrDollars1">Percent</label>
+      </input>
+      <br>
+      <input type="radio" id="percentOrDollars2"
+      name="percent?" value="dollar">
+      <label for="percentOrDollars2">Dollars</label>
+      </input>
+    </div>
+
+    <div id="submit-button" class="submitButton">
+      <button id="submitButton">Submit Changes</button>
+    </div>
+  </div>
 
   <p class="small"> version 0.1.0  <br>
   copyright 2018 </p>
