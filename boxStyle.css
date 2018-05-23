@@ -10,14 +10,14 @@
   float:right;
 }
 
-.up {
+.stock-up {
 
   background-color: #C8E6C9;
   border-color: #013220;
   color: #013220;
 }
 
-.down {
+.stock-down {
   background-color: #FF8C7F;
   border-color: #910E00;
   color: #910E00;

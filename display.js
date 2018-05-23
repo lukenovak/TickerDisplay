@@ -136,10 +136,10 @@ function buildTickerBox(price, ticker, change) {
   // if statement (box and text should be green if stock is up, red if down)
   if (change > 0) {
     //adds the div wrapper
-    htmlString = htmlString + "up\">";
+    htmlString = htmlString + "stock-up\">";
   }
   if (change <= 0) {
-    htmlString = htmlString + "down\">";
+    htmlString = htmlString + "stock-down\">";
   }
   // adds the text inside the divider
   htmlString = htmlString + "<p>" + ticker + " $" + price + " " + changeString + "</p>";
