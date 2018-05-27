@@ -6,18 +6,8 @@ function getUserOptions() {
   var percent;
   var ticker;
   // since we only have two options for now we can iterate
-  if (options[0].checked) {
-    percent = true;
-  }
-  if (options[1].checked) {
-    percent = false;
-  }
-  if (options2.checked) {
-    ticker = true;
-  }
-  if (!options2.checked) {
-    ticker = false;
-  }
+  percent = options[0].checked;
+  ticker = options2.checked;
   chrome.storage.sync.set({
     isPercent: percent,
     isTicker: ticker
@@ -53,14 +43,9 @@ function resetUserOptions() {
     if (items.isPercent) {
       document.getElementById("percentOrDollars1").checked = true;
     }
-    if (!items.isPercent) {
+    else {
       document.getElementById("percentOrDollars2").checked = true;
     }
-    if (items.isTicker) {
-      document.getElementById("ticker?").checked = true;
-    }
-    if (!items.isTicker) {
-      document.getElementById("ticker?").checked = false;
-    }
+    document.getElementById("ticker?").checked = items.isTicker;
   });
 }
