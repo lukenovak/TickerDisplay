@@ -52,6 +52,10 @@ function getAndDisplayPrice(title, post) {
 // returns the box that should be displayed for the
 function displayPrice(data, post) {
   var price = data.latestPrice;
+  // if the price is greater than 1000 then we will just round to the dollar
+  if (price > 1000) {
+    price = Number(price.toFixed(0))
+  }
   var ticker = data.symbol;
   // are we representing our data as percents or dollars
   var percent = true;
@@ -98,7 +102,7 @@ function buildTickerBox(price, ticker, change, isPercent) {
 
 // creates a percent change string from the percent change dataType
 function percentChangeString(percentChange) {
-  percentChange = Number((percentChange * 100).toFixed(3)); // rounds to 3 decmial pts
+  percentChange = Number((percentChange * 100).toFixed(2)); // rounds to 3 decmial pts
   var percentString = "";
   if (percentChange > 0) {
     percentString = "+" + percentChange + "%";
