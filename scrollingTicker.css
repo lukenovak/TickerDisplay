@@ -1,0 +1,44 @@
+.ticker-bar {
+  position: fixed;
+  border: 0px;
+  border-top: 5px;
+  border-color: lightBlue;
+  border-style: solid;
+  bottom: 0px;
+  width:100%;
+  height: 50px;
+  background: navy;
+  margin: 0;
+  left: 0;
+}
+
+/* making sure that the text is all horizontal */
+.ticker-bar p {
+  color:white;
+  font-size: 36px;
+
+  /* to make the text scroll */
+  /* starting on the left */
+  -webkit-transform:translateX(100%);
+  animation: translateX(100%);
+
+  /* apply the animation */
+  -webkit-animation: ticker-bar 20s linear infinite;
+  animation: ticker-bar 20s linear infinite;
+}
+
+@-webkit-keyframes ticker-bar {
+  0%  {-webkit-transform: translateX(100%); }
+  100% {-webkit-transform: translateX(-100%); }
+}
+
+@keyframes ticker-bar {
+ 0%   {
+ -webkit-transform: translateX(100%);
+ transform: translateX(100%);
+ }
+ 100% {
+ -webkit-transform: translateX(-100%);
+ transform: translateX(-100%);
+ }
+}
